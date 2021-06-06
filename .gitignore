@@ -1,0 +1,6 @@
+practiseTest.spec.js
+node_modules
+.vscode
+cucumber-json
+reports
+cucumber-html-report.js

@@ -1,0 +1,14 @@
+{
+    "$schema": "https://on.cypress.io/cypress.schema.json",
+    "chromeWebSecurity": false,
+    "experimentalSourceRewriting": true,
+    "viewportHeight": 900,
+    "viewportWidth": 1080,
+    "defaultCommandTimeout": 20000,
+    "pageLoadTimeout": 30000,
+    "env": {
+      "baseUrl": "https://news.sky.com/"
+    },
+    "testFiles": "**/*.feature"
+  }
+  
