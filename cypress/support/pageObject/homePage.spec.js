@@ -60,10 +60,10 @@ export class homePage {
 
     homePageArticleText() {
         cy.get(`span[class="sdc-site-tile__headline-text"]`)
-        .eq(5)
+        .eq(10)
         .then( story => {
 
-            const storyText = story.text().split(" ")[5]
+            const storyText = story.text().split(" ")[5].toLocaleLowerCase()
             cy.log(storyText)
             cy.wrap(story).click({force: true})
             cy.url().should(`include`, storyText)
