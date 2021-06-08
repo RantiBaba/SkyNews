@@ -65,7 +65,7 @@ export class homePage {
 
             const storyText = story.text().split(" ")[5].toLocaleLowerCase()
             cy.log(storyText)
-            cy.wrap(story).click({force: true})
+            cy.wrap(story).parent().invoke('removeAttr','target').click({force: true})
             cy.url().should(`include`, storyText)
         })
 
