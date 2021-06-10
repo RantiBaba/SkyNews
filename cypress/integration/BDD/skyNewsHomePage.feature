@@ -17,7 +17,7 @@ Feature: Sky News Home page
         Given I am on the sky news home page
         Then the default focus point is on the home category
 
-
+ 
     Scenario: 4. Verify that a word in the title text of an article appears once title of the new page loads.
         Given I am on the sky news home page
         And I have selected a word from the title of an article

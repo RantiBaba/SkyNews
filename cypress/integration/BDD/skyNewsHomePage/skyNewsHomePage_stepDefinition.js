@@ -38,18 +38,18 @@ Then(`the default focus point is on the home category`, function() {
 
 And(`I have selected a word from the title of an article`, function() {
 
-
+    homePageMethods.getArticleWord()
 })
 
 When(`I click on the news article`, function() {
 
-
+    homePageMethods.clickOnArticleLink()
 })
 
 
 Then(`the selected word must be displayed on the news article page`, function() {
 
-    homePageMethods.homePageArticleText()
+    homePageMethods.validateWordInTitle()
 
 })
 
