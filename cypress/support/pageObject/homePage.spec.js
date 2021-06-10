@@ -1,11 +1,12 @@
 // import {practiseTest} from '../../../practiseTest.spec'
 import 'cypress-iframe'
 
-export class homePage {
+export class HomePage {
 
-    constructor(articleWord, articlePageLoaded) {
+    constructor(articleWord, articlePageLoaded, dataLength) {
         this.articleWord = articleWord
         this.articlePageLoaded = articlePageLoaded
+        this.dataLength = dataLength
     }
     
     
@@ -33,13 +34,17 @@ export class homePage {
     siteCategories(){
         cy.fixture('categories').then(function (data) {
             this.data = data
+            this.dataLength = this.data.siteCategories.length
+            
             cy.get(`ul[class^="sdc-site-header__menu-cell"]`)
             .children()
-            .should(`have.length`, 15)
+            .should(`have.length`, this.dataLength)
             .each(($el, index) => {
+                
     
                 const categoriesText = $el.text().trim()
                 expect(categoriesText).to.contain(this.data.siteCategories[index])
+               
             })
         })
 
@@ -67,10 +72,10 @@ export class homePage {
     getArticleWord(){
 
         cy.get(`span[class="sdc-site-tile__headline-text"]`)
-        .eq(10)
+        .eq(35)
         .then( wordInArticle => {
 
-            this.articleWord = wordInArticle.text().split(" ")[5].toLocaleLowerCase()
+            this.articleWord = wordInArticle.text().split(" ")[4].toLocaleLowerCase()
             
 
         }).then(() => {
@@ -82,7 +87,7 @@ export class homePage {
 
     clickOnArticleLink(){
         cy.get(`span[class="sdc-site-tile__headline-text"]`)
-        .eq(10)
+        .eq(35)
         .parent()
         .invoke('removeAttr','target')
         .click({force: true})
@@ -128,4 +133,4 @@ export class homePage {
 
 }
 
-export const homePageMethods = new homePage()
+export const homePageMethods = new HomePage()
