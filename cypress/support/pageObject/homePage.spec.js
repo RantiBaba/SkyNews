@@ -72,10 +72,10 @@ export class HomePage {
     getArticleWord(){
 
         cy.get(`span[class="sdc-site-tile__headline-text"]`)
-        .eq(35)
+        .eq(6)
         .then( wordInArticle => {
 
-            this.articleWord = wordInArticle.text().split(" ")[4].toLocaleLowerCase()
+            this.articleWord = wordInArticle.text().split(" ")[5].toLocaleLowerCase()
             
 
         }).then(() => {
@@ -87,7 +87,7 @@ export class HomePage {
 
     clickOnArticleLink(){
         cy.get(`span[class="sdc-site-tile__headline-text"]`)
-        .eq(35)
+        .eq(6)
         .parent()
         .invoke('removeAttr','target')
         .click({force: true})
